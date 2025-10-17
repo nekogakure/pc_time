@@ -3,4 +3,4 @@ project(pc_time C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(pc_time main.c)
+add_executable(pc_time WIN32 main.c)

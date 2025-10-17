@@ -9,11 +9,17 @@
  */
 
 #include <windows.h>
+#include <winuser.h>
 #include <locale.h>
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-                   LPSTR lpCmdLine, int nShowCmd) {
-    setlocale(LC_ALL, "JA");
-    MessageBoxW(NULL, L"開始時間かけ！", L"書けよ！カレンダーに！", MB_OK | MB_ICONINFORMATION);
-    return 0;
+int WINAPI WinMain(const HINSTANCE hInstance, HINSTANCE hPrevInstance,
+                   LPSTR lpCmdLine, const int nShowCmd) {
+    setlocale(LC_CTYPE, "JA");
+    MessageBoxW(NULL, L"PC開始時間かけ！！！", L"書け！！！！！！", MB_ICONWARNING);
+
+    // 最前面に表示
+    const HWND hWnd = FindWindowW(NULL, L"書け！！！！！！");
+    if (hWnd != NULL) {
+        SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+    }
 }
